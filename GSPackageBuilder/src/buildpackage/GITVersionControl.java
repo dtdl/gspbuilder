@@ -39,9 +39,13 @@ public class GITVersionControl {
 		
 		//get the current working tree from the git repository
 		WorkingTree wt = dotGit.getWorkingTree();
-		GitAddResponse ar = wt.add();
-		wt.commitAll("First commit to the git repository");
+		System.out.println(wt.getCurrentBranch());
+		System.out.println(wt.getTree().size());
+		System.out.println(wt.getTree());
+//		GitAddResponse ar = wt.add();
+//		wt.commitAll("First commit to the git repository");
 		
+		/*
 		//Print messages for the commits we just made.
 		System.out.println("----- Print log to see our commit -----");
 		for (Commit c : dotGit.getLog() ){
@@ -99,6 +103,8 @@ public class GITVersionControl {
 		for (Commit c : dotGit.getLog() ){
 			System.out.println(c.getMessage());
 		}
-//		FileUtilities.removeDirectoryRecursivelyAndForcefully(repositoryDirectory);	
+//		FileUtilities.removeDirectoryRecursivelyAndForcefully(repositoryDirectory);
+ * 	
+ */
 	}
 }
