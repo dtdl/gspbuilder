@@ -26,7 +26,7 @@ public class GITVersionControl {
 		
 		//Create a new directory to be used as a git repository.
 //		repositoryDirectory = FileUtilities.createTempDirectory("Demo_gitRepository");
-		repositoryDirectory = new File("D:\\gitrepository\\gspbuilder");
+		repositoryDirectory = new File("D:\\gitrepository\\gspbuilder\\GSPackageBuilder\\src\\buildpackage");
 		System.out.println("Git Repository Location : " + repositoryDirectory.getAbsolutePath());
 		//get the instance of the dotGit Object
 		dotGit = DotGit.getInstance(repositoryDirectory);
@@ -42,10 +42,17 @@ public class GITVersionControl {
 		System.out.println(wt.getCurrentBranch());
 		System.out.println(wt.getTree().size());
 		System.out.println(wt.getTree());
+		for (int i=0; i< wt.getTree().size(); i++ ) {
+			GitFileSystemObject obj = wt.getTree().get(i);
+			System.out.println("........"+obj.getName());
+			System.out.println("........"+obj.getFile());
+			System.out.println("........"+obj.diff());
+			System.out.println("........"+obj.getWorkingTree().getTree().get(0));
+		}
+		/*
 //		GitAddResponse ar = wt.add();
 //		wt.commitAll("First commit to the git repository");
 		
-		/*
 		//Print messages for the commits we just made.
 		System.out.println("----- Print log to see our commit -----");
 		for (Commit c : dotGit.getLog() ){
@@ -59,9 +66,11 @@ public class GITVersionControl {
 		while(refs.hasNext()){
 			System.out.println(refs.next().getName());
 		}
+		
 		//Get the current branch
 		System.out.println("Current branch is :"+ wt.getCurrentBranch().getName());
 		
+		/*
 		//Create a new branch
 		System.out.println("----- Creating a new branch -----");
 		Ref experimental = dotGit.createBranch("experimental");
@@ -82,13 +91,20 @@ public class GITVersionControl {
 		//Commit the changes we just made to the file
 		System.out.println("----- Commiting changes -----");
 		wt.commitAll("Adding some content to README");
+*/
 		
 		//Print messages for the commits we just made.
 		System.out.println("----- Print logs about commit -----");
 		for (Commit c : dotGit.getLog() ){
 			System.out.println(c.getMessage());
+			System.out.println(c.getFilesChanged());
+			System.out.println(c.getFiles());
+			System.out.println(c.getAuthor());
+			System.out.println(c.getDateString());
+			System.out.println(c.getLinesInserted());
 		}	
-		
+
+		/*
 		wt.checkout(master);
 		System.out.println("----- Deleting Branch -----");
 		dotGit.deleteBranch(experimental, true);
@@ -97,12 +113,15 @@ public class GITVersionControl {
 		while(refs.hasNext()){
 			System.out.println("-> "+refs.next().getName());
 		}
-				
+
+		
+			
 		//Print messages for the commits after we delete the experimental branch.
 		System.out.println("----- Print logs about commit -----");
 		for (Commit c : dotGit.getLog() ){
 			System.out.println(c.getMessage());
 		}
+		/*
 //		FileUtilities.removeDirectoryRecursivelyAndForcefully(repositoryDirectory);
  * 	
  */
