@@ -97,11 +97,13 @@ public class GITVersionControl {
 		System.out.println("----- Print logs about commit -----");
 		for (Commit c : dotGit.getLog() ){
 			System.out.println(c.getMessage());
-			System.out.println(c.getFilesChanged());
-			System.out.println(c.getFiles());
+//			System.out.println(c.getFilesChanged());
+//			System.out.println(c.getFiles());
 			System.out.println(c.getAuthor());
 			System.out.println(c.getDateString());
-			System.out.println(c.getLinesInserted());
+//			System.out.println(c.getLinesInserted());
+			System.out.println(c.getSha());
+			System.out.println(c.getMergeDetails());
 		}	
 
 		/*
