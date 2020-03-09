@@ -45,9 +45,9 @@ public class GITVersionControl {
 		for (int i=0; i< wt.getTree().size(); i++ ) {
 			GitFileSystemObject obj = wt.getTree().get(i);
 			System.out.println("........"+obj.getName());
-			System.out.println("........"+obj.getFile());
-			System.out.println("........"+obj.diff());
-			System.out.println("........"+obj.getWorkingTree().getTree().get(0));
+//			System.out.println("........"+obj.getFile());
+//			System.out.println("........"+obj.diff());
+//			System.out.println("........"+obj.getWorkingTree().getTree().get(0));
 		}
 		/*
 //		GitAddResponse ar = wt.add();
